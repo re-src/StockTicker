@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stockticker</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/Chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css">
+    <script LANGUAGE="JavaScript" src="./scripts/AnchorPosition.js"></script>
+    <script LANGUAGE="JavaScript" src="./scripts/CalendarPopup.js"></script>
+    <script LANGUAGE="JavaScript" src="./scripts/date.js"></script>
+    <script LANGUAGE="JavaScript" src="./scripts/PopupWindow.js"></script>
+
+    <SCRIPT LANGUAGE="JavaScript">
+        var calStart = new CalendarPopup()
+        var calEnd = new CalendarPopup()
+    </SCRIPT>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/css/toastr.min.css">
+</head>
+<body>
+<div class="container">
+    <div>
+        <img src="./css/images/header_images.jpg" width="500">
+
+        <h1>Stocks</h1>
+        <img src="./css/images/fbg_line.gif" height="10" width="970">
+
+        <p></p>
+
+        <p>Please select one or more of the available stocks:</p>
+        <select multiple id="stock_selection" size="10"></select>
+        <p>Please select a valid start and end date:</p>
+        <FORM NAME="startdate">
+            <INPUT TYPE="text" NAME="date1" VALUE="" SIZE=25 id="start">
+            <A HREF="#"
+               onClick="calStart.select(document.forms['startdate'].date1,'anchor1','dd.MM.yyyy'); return false;"
+               NAME="anchor1" ID="anchor1">Start date</A>
+        </FORM>
+        <FORM NAME="enddate">
+            <INPUT TYPE="text" NAME="date1" VALUE="" SIZE=25 id="end">
+            <A HREF="#"
+               onClick="calEnd.select(document.forms['enddate'].date1,'anchor1','dd.MM.yyyy'); return false;"
+               NAME="anchor2" ID="anchor2">End date</A>
+        </FORM>
+        <p></p>
+        <input type="button" value="Start" onclick="loadChart()"/>
+
+
+        <p></p>
+        <img src="./css/images/fbg_line.gif" height="10" width="970">
+
+        <p></p>
+    </div>
+
+    <div style="background-color: white">
+        </br>
+        <canvas id="myChart" width="800" height="600"></canvas>
+    </div >
+    <div id="legend_div" style="background-color: white">
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        getOptions();
+    });
+</script>
+</body>
+</html>
